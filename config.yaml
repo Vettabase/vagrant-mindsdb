@@ -1,0 +1,22 @@
+---
+box:
+provider:
+
+credentials:
+
+vm:
+  name:
+  description:
+  hotplug:
+  cpu:
+  ram:
+
+private_network:
+  enable:
+  name:
+  ip:
+
+synced_folders:
+
+guest_system:
+  swappiness:
