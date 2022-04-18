@@ -85,7 +85,7 @@ Vagrant.configure('2') do |config|
 
     # write some information in the info directory, so that it will
     # be easily available form the VM
-    info_file = File.new('files/generated/box', 'w')
+    info_file = File.new('generated/box', 'w')
     info_file.puts(BOX)
 
     # Create a the FEATURES file.
