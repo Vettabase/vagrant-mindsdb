@@ -14,7 +14,7 @@ apt install -y python3.8-venv
 python3 -m venv mindsdb
 source mindsdb/bin/activate
 
-pip install --upgrade pip
+pip install --upgrade --prefer-binary --no-cache-dir pip
 pip install mindsdb
 pip freeze
 
