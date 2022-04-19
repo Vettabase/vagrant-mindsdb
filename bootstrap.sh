@@ -15,7 +15,7 @@ python3 -m venv mindsdb
 source mindsdb/bin/activate
 
 pip install --upgrade --prefer-binary --no-cache-dir pip
-pip install mindsdb
+pip install --prefer-binary --no-cache-dir  mindsdb
 pip freeze
 
 apt-get install -y \
