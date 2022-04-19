@@ -15,13 +15,13 @@ python3 -m venv mindsdb
 source mindsdb/bin/activate
 
 pip install --upgrade --prefer-binary --no-cache-dir pip
-pip install --prefer-binary --no-cache-dir  mindsdb
+pip install --no-cache-dir mindsdb
 pip freeze
 
 apt-get install -y \
     mariadb-client
 
-python3 -m mindsdb --config=$CONFIG_FILE_PATH --api=$APIs &
+python3 -m mindsdb &
 
 
 
