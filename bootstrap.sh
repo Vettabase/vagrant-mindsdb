@@ -19,8 +19,13 @@ apt install -y python3.8-venv
 python3 -m venv mindsdb
 source mindsdb/bin/activate
 
+if [ ! -z "$MINDSDB_VERSION" ];
+then
+    ARG_MINDSDB_VERSION="==$MINDSDB_VERSION"
+fi
+
 pip install --upgrade --prefer-binary --no-cache-dir pip
-pip install --no-cache-dir mindsdb
+pip install --no-cache-dir mindsdb$ARG_MINDSDB_VERSION
 pip freeze
 
 apt-get install -y \

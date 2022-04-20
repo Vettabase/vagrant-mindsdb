@@ -39,6 +39,8 @@ VM_RAM      = ENV['VM_RAM']      || box_config['vm']['ram']          || 1024 * 4
 PNET_ENABLE   = ENV['PNET_ENABLE']   || box_config['private_network']['enable']  || 'NO'
 PNET_NAME     = ENV['PNET_NAME']     || box_config['private_network']['name']    || ''
 PNET_IP       = ENV['PNET_IP']       || box_config['private_network']['ip']      || ''
+# MindsDB settings
+MINDSDB_VERSION     = ENV['MINDSDB_VERSION'] || box_config['mindsdb']['version'] || ''
 # guest system settings
 SKIP_PYTHON_ALIAS  = ENV['SKIP_PYTHON_ALIAS'] || box_config['guest_system']['skip_python_alias'] || '1'
 SYS_SWAPPINESS     = ENV['SYS_SWAPPINESS'] || box_config['guest_system']['swappiness'] || '1'
@@ -97,7 +99,9 @@ Vagrant.configure('2') do |config|
     config.vm.provision :shell,
         path: 'bootstrap.sh',
         env: {
-            'SYS_SWAPPINESS' => SYS_SWAPPINESS
+            'MINDSDB_VERSION'    => MINDSDB_VERSION,
+            'SKIP_PYTHON_ALIAS'  => SKIP_PYTHON_ALIAS,
+            'SYS_SWAPPINESS'     => SYS_SWAPPINESS
         }
 
     # end of the FEATURES file

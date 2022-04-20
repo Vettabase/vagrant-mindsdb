@@ -18,6 +18,9 @@ private_network:
 
 synced_folders:
 
+mindsdb:
+  version:
+
 guest_system:
   skip_python_alias:
   swappiness:
