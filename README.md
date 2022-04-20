@@ -164,7 +164,7 @@ TO-DO
 
 TO-DO
 
-### Packaging
+## Packaging
 
 To create a box from this Vagrantfile:
 * Create a VM as documented above, using the desired provider.
