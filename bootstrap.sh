@@ -69,6 +69,16 @@ sysctl vm.swappiness=$SYS_SWAPPINESS
 echo $SYS_SWAPPINESS > /proc/sys/vm/swappiness
 echo "vm.swappiness=$SYS_SWAPPINESS" >> /etc/sysctl.conf
 
+# generate a .my.cnf to connect MindsDB
+MYCNF=/home/vagrant/.my.cnf
+echo '[client]'         >  $MYCNF
+echo                    >> $MYCNF
+echo 'host=127.0.0.1'   >> $MYCNF
+echo 'port=47335'       >> $MYCNF
+echo 'user=mindsdb'     >> $MYCNF
+echo 'password='        >> $MYCNF
+echo                    >> $MYCNF
+
 
 # TODO: We should install this command as a service.
 # Running it in this way is useless, it's just a placeholder.
