@@ -8,6 +8,7 @@
 # Compose arguments
 # =================
 
+ARG_MINDSDB_VERSION=
 if [ ! -z "$MINDSDB_VERSION" ];
 then
     ARG_MINDSDB_VERSION="==$MINDSDB_VERSION"
