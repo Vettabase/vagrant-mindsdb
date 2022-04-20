@@ -21,7 +21,20 @@ pip freeze
 apt-get install -y \
     mariadb-client
 
-python3 -m mindsdb &
+ARG_CONFIG_FILE_PATH=
+if [ ! -z "$CONFIG_FILE_PATH" ];
+then
+    ARG_CONFIG_FILE_PATH="--config=$CONFIG_FILE_PATH"
+fi
+
+ARG_APIS=
+if [ ! -z "$APIS" ];
+then
+    ARG_APIS="--config=$APIS"
+fi
+
+
+python3 -m mindsdb $ARG_CONFIG_FILE_PATH $ARG_APIS
 
 
 
