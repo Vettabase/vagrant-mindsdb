@@ -26,6 +26,11 @@ pip freeze
 apt-get install -y \
     mariadb-client
 
+# set vm.swappiness specified value and persist it
+sysctl vm.swappiness=$SYS_SWAPPINESS
+echo $SYS_SWAPPINESS > /proc/sys/vm/swappiness
+echo "vm.swappiness=$SYS_SWAPPINESS" >> /etc/sysctl.conf
+
 ARG_CONFIG_FILE_PATH=
 if [ ! -z "$CONFIG_FILE_PATH" ];
 then
