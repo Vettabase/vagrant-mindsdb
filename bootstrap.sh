@@ -34,6 +34,8 @@ then
 fi
 
 
+# TODO: We should install this command as a service.
+# Running it in this way is useless, it's just a placeholder.
 python3 -m mindsdb $ARG_CONFIG_FILE_PATH $ARG_APIS
 
 
