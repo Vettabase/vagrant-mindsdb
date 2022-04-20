@@ -5,6 +5,32 @@
 # Play with it as you please, and feel free to contribute.
 
 
+# Compose arguments
+# =================
+
+if [ ! -z "$MINDSDB_VERSION" ];
+then
+    ARG_MINDSDB_VERSION="==$MINDSDB_VERSION"
+fi
+
+ARG_CONFIG_FILE_PATH=
+if [ ! -z "$CONFIG_FILE_PATH" ];
+then
+    ARG_CONFIG_FILE_PATH="--config=$CONFIG_FILE_PATH"
+fi
+
+ARG_APIS=
+if [ ! -z "$APIS" ];
+then
+    ARG_APIS="--config=$APIS"
+fi
+
+
+
+# Main
+# ====
+
+
 apt-get update -y
 apt-get install -y \
     python3 \
@@ -19,11 +45,6 @@ apt install -y python3.8-venv
 python3 -m venv mindsdb
 source mindsdb/bin/activate
 
-if [ ! -z "$MINDSDB_VERSION" ];
-then
-    ARG_MINDSDB_VERSION="==$MINDSDB_VERSION"
-fi
-
 pip install --upgrade --prefer-binary --no-cache-dir pip
 pip install --no-cache-dir mindsdb$ARG_MINDSDB_VERSION
 pip freeze
@@ -35,18 +56,6 @@ apt-get install -y \
 sysctl vm.swappiness=$SYS_SWAPPINESS
 echo $SYS_SWAPPINESS > /proc/sys/vm/swappiness
 echo "vm.swappiness=$SYS_SWAPPINESS" >> /etc/sysctl.conf
-
-ARG_CONFIG_FILE_PATH=
-if [ ! -z "$CONFIG_FILE_PATH" ];
-then
-    ARG_CONFIG_FILE_PATH="--config=$CONFIG_FILE_PATH"
-fi
-
-ARG_APIS=
-if [ ! -z "$APIS" ];
-then
-    ARG_APIS="--config=$APIS"
-fi
 
 
 # TODO: We should install this command as a service.
