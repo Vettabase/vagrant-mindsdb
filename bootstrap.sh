@@ -13,6 +13,12 @@ then
     ARG_MINDSDB_VERSION="==$MINDSDB_VERSION"
 fi
 
+SYS_PIP_VERSION=
+if [ ! -z "$SYS_PIP_VERSION" ];
+then
+    ARG_SYS_PIP_VERSION="==$SYS_PIP_VERSION"
+fi
+
 ARG_CONFIG_FILE_PATH=
 if [ ! -z "$CONFIG_FILE_PATH" ];
 then
@@ -45,7 +51,12 @@ apt install -y python3.8-venv
 python3 -m venv mindsdb
 source mindsdb/bin/activate
 
-pip install --upgrade --prefer-binary --no-cache-dir pip
+if [ -z "$SYS_PIP_VERSION" ];
+then
+    pip install --upgrade --prefer-binary --no-cache-dir pip
+else
+    python -m pip install pip==$SYS_PIP_VERSION
+fi
 pip install --no-cache-dir mindsdb$ARG_MINDSDB_VERSION
 pip freeze
 

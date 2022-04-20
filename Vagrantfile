@@ -43,6 +43,7 @@ PNET_IP       = ENV['PNET_IP']       || box_config['private_network']['ip']     
 MINDSDB_VERSION     = ENV['MINDSDB_VERSION'] || box_config['mindsdb']['version'] || ''
 # guest system settings
 SKIP_PYTHON_ALIAS  = ENV['SKIP_PYTHON_ALIAS'] || box_config['guest_system']['skip_python_alias'] || '1'
+SYS_PIP_VERSION    = ENV['SYS_PIP_VERSION']   || box_config['guest_system']['pip_version']       || ''
 SYS_SWAPPINESS     = ENV['SYS_SWAPPINESS'] || box_config['guest_system']['swappiness'] || '1'
 
 
@@ -101,6 +102,7 @@ Vagrant.configure('2') do |config|
         env: {
             'MINDSDB_VERSION'    => MINDSDB_VERSION,
             'SKIP_PYTHON_ALIAS'  => SKIP_PYTHON_ALIAS,
+            'SYS_PIP_VERSION'    => SYS_PIP_VERSION,
             'SYS_SWAPPINESS'     => SYS_SWAPPINESS
         }
 
