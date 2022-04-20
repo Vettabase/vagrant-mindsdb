@@ -10,6 +10,11 @@ apt-get install -y \
     python3 \
     python3-pip
 
+if [ -z "$SKIP_PYTHON_ALIAS" ];
+then
+    apt-get install python-is-python3
+fi
+
 apt install -y python3.8-venv
 python3 -m venv mindsdb
 source mindsdb/bin/activate
