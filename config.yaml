@@ -19,4 +19,5 @@ private_network:
 synced_folders:
 
 guest_system:
+  skip_python_alias:
   swappiness:

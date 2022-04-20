@@ -40,7 +40,8 @@ PNET_ENABLE   = ENV['PNET_ENABLE']   || box_config['private_network']['enable'] 
 PNET_NAME     = ENV['PNET_NAME']     || box_config['private_network']['name']    || ''
 PNET_IP       = ENV['PNET_IP']       || box_config['private_network']['ip']      || ''
 # guest system settings
-SYS_SWAPPINESS  = ENV['SYS_SWAPPINESS'] || box_config['guest_system']['swappiness'] || '1'
+SKIP_PYTHON_ALIAS  = ENV['SKIP_PYTHON_ALIAS'] || box_config['guest_system']['skip_python_alias'] || '1'
+SYS_SWAPPINESS     = ENV['SYS_SWAPPINESS'] || box_config['guest_system']['swappiness'] || '1'
 
 
 Vagrant.require_version '>= 2.2.16'
