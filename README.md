@@ -144,6 +144,24 @@ than the latest.
 
 ## Usage
 
+To start using MindsDB, start the Vagrant machine with `vagrant up` and connect to it
+with `vagrant ssh`. Once you're in, just type `mysql` to connect MindsDB.
+
+To connect MindsDB to the data sources, you should make those resources reachable for
+MindsDB. With our Vagrantfile, you can use one of the following methods:
+
+* Use another basebox. For example, to let MindsDB connect MariaDB, use a MariaDB Vagrant box
+  as a basebox.
+* Connect to another Vagrant machine using a Vagrant private network. With this method
+  you can connect to any type of virtual machine, container, or remote server, provided
+  that a Vagrant provider exists and support private networking.
+
+### Using a non-default basebox
+
+TO-DO
+
+### Using private networking
+
 TO-DO
 
 ### Packaging
