@@ -27,9 +27,9 @@ then
 fi
 
 ARG_APIS=
-if [ ! -z "$APIS" ];
+if [ ! -z "$MINDSDB_APIS" ];
 then
-    ARG_APIS="--config=$APIS"
+    ARG_APIS="--api=$MINDSDB_APIS"
 fi
 
 

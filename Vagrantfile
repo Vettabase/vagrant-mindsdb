@@ -41,6 +41,7 @@ PNET_NAME     = ENV['PNET_NAME']     || box_config['private_network']['name']   
 PNET_IP       = ENV['PNET_IP']       || box_config['private_network']['ip']      || ''
 # MindsDB settings
 MINDSDB_VERSION     = ENV['MINDSDB_VERSION'] || box_config['mindsdb']['version'] || ''
+MINDSDB_APIS        = ENV['MINDSDB_APIS']    || box_config['mindsdb']['apis']    || 'http,mysql,mongodb'
 # guest system settings
 SKIP_PYTHON_ALIAS  = ENV['SKIP_PYTHON_ALIAS'] || box_config['guest_system']['skip_python_alias'] || '1'
 SYS_PIP_VERSION    = ENV['SYS_PIP_VERSION']   || box_config['guest_system']['pip_version']       || ''
@@ -104,6 +105,7 @@ Vagrant.configure('2') do |config|
         path: 'bootstrap.sh',
         env: {
             'MINDSDB_VERSION'    => MINDSDB_VERSION,
+            'MINDSDB_APIS'       => MINDSDB_APIS,
             'SKIP_PYTHON_ALIAS'  => SKIP_PYTHON_ALIAS,
             'SYS_PIP_VERSION'    => SYS_PIP_VERSION,
             'SYS_SWAPPINESS'     => SYS_SWAPPINESS

@@ -20,6 +20,7 @@ synced_folders:
 
 mindsdb:
   version:
+  apis:
 
 guest_system:
   skip_python_alias:
