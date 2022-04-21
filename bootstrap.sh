@@ -62,7 +62,8 @@ pip install --no-cache-dir mindsdb$ARG_MINDSDB_VERSION
 pip freeze
 
 apt-get install -y \
-    mariadb-client
+    mariadb-client \
+    vim
 
 # set vm.swappiness specified value and persist it
 sysctl vm.swappiness=$SYS_SWAPPINESS
