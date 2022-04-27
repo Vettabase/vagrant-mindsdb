@@ -21,6 +21,7 @@ then
 fi
 
 ARG_CONFIG_FILE_PATH=
+#ARG_CONFIG_FILE_PATH='--config=/home/vagrant/assets/config.json'
 if [ ! -z "$CONFIG_FILE_PATH" ];
 then
     ARG_CONFIG_FILE_PATH="--config=$CONFIG_FILE_PATH"
