@@ -79,7 +79,7 @@ the latest. Note that it must be Python 3.
 To add the guest system to a private network (if the provider supports this),
 use these settings.
 
-* YAML dictionary: `private_network`
+* YAML dictionary: `private_network.`
 * Variables prefix: `PNET_`
 
 | Config File | Environment | Default | Description |
@@ -94,7 +94,7 @@ This feature is useful to let MindsDB get data from other Vagrant machines.
 
 You can expose some ports to the host system using these settings.
 
-* YAML dictionary: `ports`
+* YAML dictionary: `ports.`
 * Variables prefix: `PORT_`
 
 | Config File     | Environment    | Default value  | Default port | Description |
