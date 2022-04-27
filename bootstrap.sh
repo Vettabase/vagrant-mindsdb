@@ -64,10 +64,14 @@ apt-get install -y \
     mariadb-client \
     vim
 
+# if SYS_SWAPPINESS is set,
 # set vm.swappiness specified value and persist it
-sysctl vm.swappiness=$SYS_SWAPPINESS
-echo $SYS_SWAPPINESS > /proc/sys/vm/swappiness
-echo "vm.swappiness=$SYS_SWAPPINESS" >> /etc/sysctl.conf
+if [ ! -z "$SYS_SWAPPINESS" ];
+then
+    sysctl vm.swappiness=$SYS_SWAPPINESS
+    echo $SYS_SWAPPINESS > /proc/sys/vm/swappiness
+    echo "vm.swappiness=$SYS_SWAPPINESS" >> /etc/sysctl.conf
+fi
 
 # generate a .my.cnf to connect MindsDB
 MYCNF=/home/vagrant/.my.cnf
