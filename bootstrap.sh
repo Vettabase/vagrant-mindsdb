@@ -88,10 +88,5 @@ PYTHONUNBUFFERED=1 python3 -m mindsdb $ARG_CONFIG_FILE_PATH $ARG_APIS
 
 # NOTES
 
-# The Docker image places the config file here:
-# /root/mindsdb_config.json
-
-# http,mysql,mongodb
-
 # to connect:
 # mysql -h127.0.0.1 -P47335 -umindsdb
