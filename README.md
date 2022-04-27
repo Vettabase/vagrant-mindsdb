@@ -137,7 +137,7 @@ These settings affect the configuration of the guest system.
 | --------------------------------- | -------------------- | -------- | ----------- |
 | `guest_system.skip_python_alias`  | `SKIP_PYTHON_ALIAS`  | `''`     | Set to any value to use `python` as an alias for `python3`.
 | `guest_system.pip_version`        | `SYS_PIP_VERSION`    | `''`     | Install this Pip version, rather than the latest.
-| `guest_system.swappiness`         | `SYS_SWAPPINESS`     | `1`      | Linux swappiness
+| `guest_system.swappiness`         | `SYS_SWAPPINESS`     | `1`      | Linux swappiness level. Swappiness can save a process from being killes when it requires too much memory, but it can also severly damage a database server performance. MindsDB is not expected to be an exception.
 
 
 ## Usage
