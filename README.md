@@ -99,10 +99,7 @@ You can expose some ports to the host system using these settings.
 
 | Config File     | Environment    | Default value  | Default port | Description |
 | --------------- | -------------- | -------------- | ------------ | ----------- |
-| `ports.immudb`  | `PORT_IMMUDB`  | `''`           | 3322         | immudb connections.
-| `ports.metrics` | `PORT_METRICS` | `''`           | 9497         | Prometheus exporter.
-| `ports.web`     | `PORT_WEB`     | `''`           | 8080         | Web console.
-| `ports.immugw`  | `PORT_IMMUGW`  | `''`           | 3323 or IMMUGW_PORT | immugw.
+| `ports....`  | `PORT_...`  | `''`           | ...          | ...
 
 By default, no port is exposed. To expose a port, set the corresponding variable
 to `DEFAULT` (to use the default port number) or to a port number (to map it to
