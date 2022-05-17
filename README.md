@@ -166,6 +166,13 @@ To create a box from this Vagrantfile:
 * Run `vagrant package --output <filename>`.
 
 
+## To Do
+
+Our To-Do is our GitHub Issues tab:
+
+https://github.com/Vettabase/vagrant-mindsdb/issues
+
+
 ## Copyright and Contacts
 
 This repository is distributed under the terms of the GNU AGPL, version 3. Copyright: Vettabase Ltd.
