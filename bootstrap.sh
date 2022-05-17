@@ -8,18 +8,21 @@
 # Compose arguments
 # =================
 
+# MindsDB version to install via PIP
 ARG_MINDSDB_VERSION=
 if [ ! -z "$MINDSDB_VERSION" ];
 then
     ARG_MINDSDB_VERSION="==$MINDSDB_VERSION"
 fi
 
+# PIP version to install from a Linux repository
 SYS_PIP_VERSION=
 if [ ! -z "$SYS_PIP_VERSION" ];
 then
     ARG_SYS_PIP_VERSION="==$SYS_PIP_VERSION"
 fi
 
+# MindsDB --config parameter
 ARG_CONFIG_FILE_PATH=
 #ARG_CONFIG_FILE_PATH='--config=/home/vagrant/assets/config.json'
 if [ ! -z "$CONFIG_FILE_PATH" ];
@@ -27,6 +30,7 @@ then
     ARG_CONFIG_FILE_PATH="--config=$CONFIG_FILE_PATH"
 fi
 
+# MindsDB --api parameter
 ARG_APIS=
 if [ ! -z "$MINDSDB_APIS" ];
 then
