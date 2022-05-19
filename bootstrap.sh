@@ -88,10 +88,71 @@ echo 'password='        >> $MYCNF
 echo                    >> $MYCNF
 
 
-# TODO: We should install this command as a service.
-# Running it in this way is useless, it's just a placeholder.
-PYTHONUNBUFFERED=1 python3 -m mindsdb $ARG_CONFIG_FILE_PATH $ARG_APIS
+# Utility scripts used by systemd and humans
 
+MINDSDB_SCRIPT_DIR=/usr/local/bin/mindsdb
+mkdir -p $MINDSDB_SCRIPT_DIR
+
+
+# mindsdb-start.sh
+
+MINDSDB_START=$MINDSDB_SCRIPT_DIR/mindsdb-start.sh
+touch $MINDSDB_START
+chown  root  $MINDSDB_START
+chgrp  root  $MINDSDB_START
+chmod  744   $MINDSDB_START
+
+echo '#!/bin/bash'                  >  $MINDSDB_START
+echo 'cd /home/vagrant'             >> $MINDSDB_START
+echo 'source mindsdb/bin/activate'  >> $MINDSDB_START
+echo "PYTHONUNBUFFERED=1 python3 -m mindsdb $ARG_CONFIG_FILE_PATH $ARG_APIS" \
+    >>  $MINDSDB_START
+
+
+# mindsdb-stop.sh
+
+MINDSDB_STOP=$MINDSDB_SCRIPT_DIR/mindsdb-stop.sh
+touch $MINDSDB_STOP
+chown  root  $MINDSDB_STOP
+chgrp  root  $MINDSDB_STOP
+chmod  744   $MINDSDB_STOP
+
+echo '#!/bin/bash' \
+    >   $MINDSDB_STOP
+echo 'kill -15 $( systemctl show --property MainPID mindsdb |cut -d"=" -f2 )' \
+    >>  $MINDSDB_STOP
+
+
+# let's move the file when it's finished to avoid polluting
+# systemd directories
+SERVICE_CONF=/tmp/mindsdb.service
+touch  $SERVICE_CONF
+chown  root  $SERVICE_CONF
+chgrp  root  $SERVICE_CONF
+chmod  644   $SERVICE_CONF
+
+echo '[Unit]'                      >  $SERVICE_CONF
+echo 'Description=MindsDB In-Database Marchine Learning' \
+                                   >> $SERVICE_CONF
+echo ''                            >> $SERVICE_CONF
+echo '[Service]'                   >> $SERVICE_CONF
+echo 'Type=simple'                 >> $SERVICE_CONF
+echo 'Restart=on-failure'          >> $SERVICE_CONF
+echo 'TimeoutStartSec=10min'       >> $SERVICE_CONF
+echo 'RestartSec=1'                >> $SERVICE_CONF
+echo 'User=root'                   >> $SERVICE_CONF
+echo 'Group=root'                  >> $SERVICE_CONF
+echo "ExecStart=$MINDSDB_START"    >> $SERVICE_CONF
+echo "ExecStop=$MINDSDB_STOP"      >> $SERVICE_CONF
+echo ''                            >> $SERVICE_CONF
+echo '[Install]'                   >> $SERVICE_CONF
+echo 'WantedBy=multi-user.target'  >> $SERVICE_CONF
+echo ''                            >> $SERVICE_CONF
+
+mv $SERVICE_CONF /etc/systemd/system/mindsdb.service
+
+systemctl daemon-reload
+systemctl start mindsdb
 
 
 # NOTES
