@@ -92,6 +92,8 @@ echo                    >> $MYCNF
 
 MINDSDB_SCRIPT_DIR=/usr/local/bin/mindsdb
 mkdir -p $MINDSDB_SCRIPT_DIR
+PATH=$( source /etc/environment && echo $PATH:$MINDSDB_SCRIPT_DIR )
+echo "PATH=\"$PATH\"" > /etc/environment
 
 
 # mindsdb-start.sh
