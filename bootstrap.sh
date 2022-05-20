@@ -64,9 +64,24 @@ fi
 pip install --no-cache-dir --default-timeout 30 mindsdb$ARG_MINDSDB_VERSION
 pip freeze
 
-if [ ! -z "$INCLUDE_MARIADB_CLIENT" ];
+if [ ! -z "$INCLUDE_CLIENT_MARIADB" ];
 then
     apt-get install -y mariadb-client
+fi
+
+# if $INCLUDE_CLIENT_MYCLI is set,
+# install mycli in a Pythonvirtual environment
+# and create a mycli alias for vagrant and root
+if [ ! -z "$INCLUDE_CLIENT_MYCLI" ];
+then
+    python3 -m venv mycli
+    source mycli/bin/activate
+    pip3 install mycli
+    deactivate
+
+    BASHRC=/home/vagrant/.bashrc
+    echo '' >> $BASHRC
+    echo 'alias mycli="source /home/vagrant/mycli/bin/activate && mycli && deactivate"' >> $BASHRC
 fi
 
 apt-get install -y vim

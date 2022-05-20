@@ -30,3 +30,4 @@ guest_system:
 include:
   clients:
     mariadb:
+    mycli:

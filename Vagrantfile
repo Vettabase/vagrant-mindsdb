@@ -48,7 +48,8 @@ SYS_PIP_VERSION    = ENV['SYS_PIP_VERSION']   || box_config['guest_system']['pip
 SYS_SWAPPINESS     = ENV['SYS_SWAPPINESS'] || box_config['guest_system']['swappiness'] || '1'
 
 # features and components
-INCLUDE_MARIADB_CLIENT = ENV['INCLUDE_MARIADB_CLIENT'] || box_config['include']['clients']['mariadb'] || '1'
+INCLUDE_CLIENT_MARIADB = ENV['INCLUDE_CLIENT_MARIADB'] || box_config['include']['clients']['mariadb'] || '1'
+INCLUDE_CLIENT_MYCLI   = ENV['INCLUDE_CLIENT_MYCLI']   || box_config['include']['clients']['mycli']   || '1'
 
 
 Vagrant.require_version '>= 2.2.16'
@@ -112,7 +113,8 @@ Vagrant.configure('2') do |config|
             'SKIP_PYTHON_ALIAS'  => SKIP_PYTHON_ALIAS,
             'SYS_PIP_VERSION'    => SYS_PIP_VERSION,
             'SYS_SWAPPINESS'     => SYS_SWAPPINESS,
-            'INCLUDE_MARIADB_CLIENT' => INCLUDE_MARIADB_CLIENT
+            'INCLUDE_CLIENT_MARIADB' => INCLUDE_CLIENT_MARIADB,
+            'INCLUDE_CLIENT_MYCLI' => INCLUDE_CLIENT_MYCLI
         }
 
     # end of the FEATURES file
