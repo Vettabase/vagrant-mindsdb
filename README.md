@@ -137,6 +137,18 @@ These settings affect the configuration of the guest system.
 | `guest_system.pip_version`        | `SYS_PIP_VERSION`    | `''`     | Install this Pip version, rather than the latest. Don't change it unless you know what you are doing.
 | `guest_system.swappiness`         | `SYS_SWAPPINESS`     | `1`      | Linux swappiness level. Swappiness can save a process from being killes when it requires too much memory, but it can also severly damage a database server performance. MindsDB is not expected to be an exception.
 
+### Features / components
+
+Specific features or components can be added to, or removed from the guest system
+by using these settings:
+
+* YAML dictionary: `include.`
+* Variables prefix: `INCLUDE_`
+
+| Config File                | Environment               | Default  | Description |
+| -------------------------- | ------------------------- | -------- | ----------- |
+| `include.clients.mariadb`  | `INCLUDE_CLIENT_MARIADB`  | `1`      | Set to any value to include MariaDB client.
+
 
 ## Usage
 

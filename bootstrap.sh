@@ -64,9 +64,12 @@ fi
 pip install --no-cache-dir --default-timeout 30 mindsdb$ARG_MINDSDB_VERSION
 pip freeze
 
-apt-get install -y \
-    mariadb-client \
-    vim
+if [ ! -z "$INCLUDE_MARIADB_CLIENT" ];
+then
+    apt-get install -y mariadb-client
+fi
+
+apt-get install -y vim
 
 # if SYS_SWAPPINESS is set,
 # set vm.swappiness specified value and persist it

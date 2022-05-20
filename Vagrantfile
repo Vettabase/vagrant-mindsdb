@@ -47,6 +47,9 @@ SKIP_PYTHON_ALIAS  = ENV['SKIP_PYTHON_ALIAS'] || box_config['guest_system']['ski
 SYS_PIP_VERSION    = ENV['SYS_PIP_VERSION']   || box_config['guest_system']['pip_version']       || ''
 SYS_SWAPPINESS     = ENV['SYS_SWAPPINESS'] || box_config['guest_system']['swappiness'] || '1'
 
+# features and components
+INCLUDE_MARIADB_CLIENT = ENV['INCLUDE_MARIADB_CLIENT'] || box_config['include']['clients']['mariadb'] || '1'
+
 
 Vagrant.require_version '>= 2.2.16'
 
@@ -108,7 +111,8 @@ Vagrant.configure('2') do |config|
             'MINDSDB_APIS'       => MINDSDB_APIS,
             'SKIP_PYTHON_ALIAS'  => SKIP_PYTHON_ALIAS,
             'SYS_PIP_VERSION'    => SYS_PIP_VERSION,
-            'SYS_SWAPPINESS'     => SYS_SWAPPINESS
+            'SYS_SWAPPINESS'     => SYS_SWAPPINESS,
+            'INCLUDE_MARIADB_CLIENT' => INCLUDE_MARIADB_CLIENT
         }
 
     # end of the FEATURES file
