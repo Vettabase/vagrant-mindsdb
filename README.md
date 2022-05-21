@@ -93,6 +93,10 @@ This feature is useful to let MindsDB get data from other Vagrant machines.
 
 ### Exposing ports to the host
 
+Vagrant allows you to expose a guest system's ports to the host. In our case,
+this allows any MariaDB or MySQL compatible client installed on the host system
+to connect to MindsDB.
+
 You can expose some ports to the host system using these settings.
 
 * YAML dictionary: `ports.`
@@ -105,9 +109,6 @@ You can expose some ports to the host system using these settings.
 By default, no port is exposed. To expose a port, set the corresponding variable
 to `DEFAULT` (to use the default port number) or to a port number (to map it to
 a different host system port). The guest system will always use the default ports.
-
-This feature is useful to use any MySQL-compatible client installed on your host system,
-and work with a MindsDB Vagrant machine.
 
 ### Synced folders
 
