@@ -109,7 +109,7 @@ a different host system port). The guest system will always use the default port
 This feature is useful to use any MySQL-compatible client installed on your host system,
 and work with a MindsDB Vagrant machine.
 
-### Synced Folders
+### Synced folders
 
 Synced folders are a Vagrant feature that allows a Vagrant machine to share a
 directory with the host system. You can also allows to make a directory in
