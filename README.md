@@ -165,9 +165,24 @@ MindsDB. With our Vagrantfile, you can use one of the following methods:
   you can connect to any type of virtual machine, container, or remote server, provided
   that a Vagrant provider exists and support private networking.
 
-### Using a non-default basebox
+### Specifying a custom basebox
 
-TO-DO
+A way to allow MindsDB to communicate with a target database is to
+run them both on the same Vagrant machine.
+
+To do so, you may instruct the Vagrantfile to use a basebox that runs
+the target database. A new box, running MindsDB, will be built starting
+from the specified basebox.
+
+You can do this by passing the `BOX` environment variable:
+
+```
+BOX=another_box vagrant up
+```
+
+Or by changing the value of `box` in the `config.yaml` file.
+
+See "Generic settings" to know which OSs are supported.
 
 ### Using private networking
 
