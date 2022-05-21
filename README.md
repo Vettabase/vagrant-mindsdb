@@ -74,6 +74,8 @@ These settings affect the configuration of MindsDB itself.
 | -------------------- | ------------------- | ------------ | ----------- |
 | `mindsdb.version`    | `MINDSDB_VERSION`   | `''`        | Install this Python version, rather than
 the latest. Note that it must be Python 3.
+| `mindsdb.apis`       | `MINDSDB_APIS`      | `''`         | MindsDB APIs/protocols to expose. Supported
+comma-separated values: `mysql`, `http`, `mongodb`. Leave empty to expose them all.
 
 ### Private networking
 
