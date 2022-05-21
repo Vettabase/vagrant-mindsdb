@@ -77,6 +77,10 @@ the latest. Note that it must be Python 3.
 
 ### Private networking
 
+Private networking is a Vagrant feature that allows guest system to communicate
+with each other. In our case this is useful to allow MindsDB to connect to databases
+that run on other guest systems.
+
 To add the guest system to a private network (if the provider supports this),
 use these settings.
 
@@ -88,8 +92,6 @@ use these settings.
 | `private_network.enable` | `PNET_ENABLE` | `'NO'` | Set to 'YES' (case insensitive) to enable private networking.
 | `private_network.name`   | `PNET_NAME`   | `''`   | Useful if you use multiple private networks.
 | `private_network.ip`     | `PNET_IP`     | `''`   | Specify an IP (version 4 or 6), or leave blank to automatically assign one via DHCP.
-
-This feature is useful to let MindsDB get data from other Vagrant machines.
 
 ### Exposing ports to the host
 
