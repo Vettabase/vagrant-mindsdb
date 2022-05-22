@@ -109,14 +109,14 @@ Vagrant.configure('2') do |config|
     config.vm.provision :shell,
         path: 'bootstrap.sh',
         env: {
-            'MINDSDB_VERSION'    => MINDSDB_VERSION,
-            'MINDSDB_APIS'       => MINDSDB_APIS,
-            'SKIP_PYTHON_ALIAS'  => SKIP_PYTHON_ALIAS,
-            'SYS_PIP_VERSION'    => SYS_PIP_VERSION,
-            'SYS_SWAPPINESS'     => SYS_SWAPPINESS,
-            'INCLUDE_CLIENT_MARIADB' => INCLUDE_CLIENT_MARIADB,
-            'INCLUDE_CLIENT_MYCLI' => INCLUDE_CLIENT_MYCLI,
-            'SYS_ON_LOGIN'       => SYS_ON_LOGIN
+            'MINDSDB_VERSION'         => MINDSDB_VERSION,
+            'MINDSDB_APIS'            => MINDSDB_APIS,
+            'SKIP_PYTHON_ALIAS'       => SKIP_PYTHON_ALIAS,
+            'SYS_PIP_VERSION'         => SYS_PIP_VERSION,
+            'SYS_SWAPPINESS'          => SYS_SWAPPINESS,
+            'INCLUDE_CLIENT_MARIADB'  => INCLUDE_CLIENT_MARIADB,
+            'INCLUDE_CLIENT_MYCLI'    => INCLUDE_CLIENT_MYCLI,
+            'SYS_ON_LOGIN'            => SYS_ON_LOGIN
         }
 
     # end of the FEATURES file
