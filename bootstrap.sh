@@ -181,9 +181,3 @@ MOTD=/etc/update-motd.d/00-vettabase
 chown root $MOTD
 chgrp root $MOTD
 chmod ugo+x $MOTD
-
-
-# NOTES
-
-# to connect:
-# mysql -h127.0.0.1 -P47335 -umindsdb
