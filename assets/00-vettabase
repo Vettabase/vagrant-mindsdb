@@ -20,7 +20,7 @@ echo "$GREEN
 $DEFAULT
 
 * Contribute this Vagrant box:
-echo  https://github.com/Vettabase/vagrant-mindsdb
+  https://github.com/Vettabase/vagrant-mindsdb
 
 * For support requests regarding MindsDB itself:
   https://mindsdb.com
