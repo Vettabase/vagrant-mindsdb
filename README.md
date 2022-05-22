@@ -135,7 +135,7 @@ synced_folders:
   - { host: '.', guest: '/Vagrant' }
 ```
 
-By default, no synced folder is created.
+By default, a "/vagrant" folder is created that maps to the Vagrantfile directory.
 
 ### Guest system
 
