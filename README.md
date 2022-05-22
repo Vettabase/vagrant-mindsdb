@@ -160,8 +160,8 @@ by using these settings:
 
 | Config File                | Environment               | Default  | Description |
 | -------------------------- | ------------------------- | -------- | ----------- |
-| `include.clients.mariadb`  | `INCLUDE_CLIENT_MARIADB`  | `1`      | Set to any value to include MariaDB client.
-| `include.clients.mycli`    | `INCLUDE_CLIENT_MYCLI`    | `1`      | Set to any value to include mycli client.
+| `include.clients.mariadb`  | `INCLUDE_CLIENT_MARIADB`  | `1`      | Set exactly to `1` to include MariaDB client.
+| `include.clients.mycli`    | `INCLUDE_CLIENT_MYCLI`    | `1`      | Set exactly to `1` to include mycli client.
 
 
 ## Usage

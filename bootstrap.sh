@@ -37,6 +37,8 @@ then
     ARG_APIS="--api=$MINDSDB_APIS"
 fi
 
+preferred_mysql_client='mysql'
+
 
 # Main
 # ====
@@ -64,7 +66,7 @@ fi
 pip install --no-cache-dir --default-timeout 30 mindsdb$ARG_MINDSDB_VERSION
 pip freeze
 
-if [ ! -z "$INCLUDE_CLIENT_MARIADB" ];
+if [ "$INCLUDE_CLIENT_MARIADB" == '1' ];
 then
     apt-get install -y mariadb-client
 fi
@@ -72,7 +74,7 @@ fi
 # if $INCLUDE_CLIENT_MYCLI is set,
 # install mycli in a Pythonvirtual environment
 # and create a mycli alias for vagrant and root
-if [ ! -z "$INCLUDE_CLIENT_MYCLI" ];
+if [ "$INCLUDE_CLIENT_MYCLI" == '1' ];
 then
     python3 -m venv mycli
     source mycli/bin/activate
@@ -82,6 +84,8 @@ then
     BASHRC=/home/vagrant/.bashrc
     echo '' >> $BASHRC
     echo 'alias mycli="source /home/vagrant/mycli/bin/activate && mycli && deactivate"' >> $BASHRC
+
+    preferred_mysql_client=mycli
 fi
 
 # SYS_ON_LOGIN, if specified, is a command to run on ssh login.
@@ -89,6 +93,10 @@ fi
 # client and connect to MindsDB.
 if [ ! -z "$SYS_ON_LOGIN" ];
 then
+    if [ ${SYS_ON_LOGIN^^} == 'AUTO' ];
+    then
+        SYS_ON_LOGIN=$preferred_mysql_client
+    fi
     ALIAS_FILE=/home/vagrant/.bashrc
     echo ''               >> $ALIAS_FILE
     echo "$SYS_ON_LOGIN"  >> $ALIAS_FILE
