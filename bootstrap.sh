@@ -174,6 +174,14 @@ mv $SERVICE_CONF /etc/systemd/system/mindsdb.service
 systemctl daemon-reload
 systemctl start mindsdb
 
+# replace default motd with our script
+rm /etc/update-motd.d/*
+cp /vagrant/assets/00-vettabase /etc/update-motd.d/
+MOTD=/etc/update-motd.d/00-vettabase
+chown root $MOTD
+chgrp root $MOTD
+chmod ugo+x $MOTD
+
 
 # NOTES
 

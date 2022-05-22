@@ -1,0 +1,38 @@
+#!/bin/sh
+
+GREEN='\033[1;32m'
+BLUE='\033[0;36m'
+DEFAULT='\033[0m'
+
+echo "$GREEN
+  +------------------------+
+  |                        |
+  |  MindsDB box           |
+  |                        |
+  |░░░░░░░░░░░░░░░░░░░░░░░░|
+  |                        |
+  |      by Vettabase      |
+  |                        |
+  |    vettabase.com       |
+  |    info@vettabase.com  |
+  |                        |
+  +------------------------+
+$DEFAULT
+
+* Contribute this Vagrant box:
+echo  https://github.com/Vettabase/vagrant-mindsdb
+
+* For support requests regarding MindsDB itself:
+  https://mindsdb.com
+
+* MindsDB Community:
+  https://community.mindsdb.com
+
+Vettabase offers support and consulting regarding
+MindsDB integration with existing systems/databases,
+MindsDB on-premise deployment & automation,
+and several database systems.
+
+Vettabase consulting services: $BLUE
+https://vettabase.com/blog/services$DEFAULT
+"
