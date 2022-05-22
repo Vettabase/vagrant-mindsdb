@@ -45,6 +45,7 @@ MINDSDB_APIS        = ENV['MINDSDB_APIS']    || box_config['mindsdb']['apis']   
 # guest system settings
 SKIP_PYTHON_ALIAS  = ENV['SKIP_PYTHON_ALIAS'] || box_config['guest_system']['skip_python_alias'] || '1'
 SYS_PIP_VERSION    = ENV['SYS_PIP_VERSION']   || box_config['guest_system']['pip_version']       || ''
+SYS_ON_LOGIN       = ENV['SYS_ON_LOGIN']      || box_config['guest_system']['on_login']          || ''
 SYS_SWAPPINESS     = ENV['SYS_SWAPPINESS'] || box_config['guest_system']['swappiness'] || '1'
 
 # features and components
@@ -114,7 +115,8 @@ Vagrant.configure('2') do |config|
             'SYS_PIP_VERSION'    => SYS_PIP_VERSION,
             'SYS_SWAPPINESS'     => SYS_SWAPPINESS,
             'INCLUDE_CLIENT_MARIADB' => INCLUDE_CLIENT_MARIADB,
-            'INCLUDE_CLIENT_MYCLI' => INCLUDE_CLIENT_MYCLI
+            'INCLUDE_CLIENT_MYCLI' => INCLUDE_CLIENT_MYCLI,
+            'SYS_ON_LOGIN'       => SYS_ON_LOGIN
         }
 
     # end of the FEATURES file

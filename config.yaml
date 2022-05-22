@@ -25,6 +25,7 @@ mindsdb:
 guest_system:
   skip_python_alias:
   pip_version:
+  on_login:
   swappiness:
 
 include:

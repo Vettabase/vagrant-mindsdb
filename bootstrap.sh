@@ -84,6 +84,18 @@ then
     echo 'alias mycli="source /home/vagrant/mycli/bin/activate && mycli && deactivate"' >> $BASHRC
 fi
 
+# SYS_ON_LOGIN, if specified, is a command to run on ssh login.
+# Typically it should be the command (or an alias) start a MySQL
+# client and connect to MindsDB.
+if [ ! -z "$SYS_ON_LOGIN" ];
+then
+    ALIAS_FILE=/home/vagrant/.bashrc
+    echo ''               >> $ALIAS_FILE
+    echo "$SYS_ON_LOGIN"  >> $ALIAS_FILE
+    echo ''               >> $ALIAS_FILE
+    ALIAS_FILE=''
+fi
+
 apt-get install -y vim
 
 # if SYS_SWAPPINESS is set,
