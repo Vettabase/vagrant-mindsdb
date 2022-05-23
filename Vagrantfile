@@ -35,6 +35,10 @@ VM_DESC     = ENV['VM_DESC']     || box_config['vm']['description']  || 'MindsDB
 VM_HOTPLUG  = ENV['VM_HOTPLUG']  || box_config['vm']['hotplug']      || 'on'
 VM_CPU      = ENV['VM_CPU']      || box_config['vm']['cpu']          || '2'
 VM_RAM      = ENV['VM_RAM']      || box_config['vm']['ram']          || 1024 * 4
+# expose/map ports
+PORT_MYSQL    = ENV['PORT_MYSQL']    || box_config['ports']['mysql']    || nil
+PORT_HTTP     = ENV['PORT_HTTP']     || box_config['ports']['http']     || nil
+PORT_MONGODB  = ENV['PORT_MONGODB']  || box_config['ports']['mongodb']  || nil
 # private network
 PNET_ENABLE   = ENV['PNET_ENABLE']   || box_config['private_network']['enable']  || 'NO'
 PNET_NAME     = ENV['PNET_NAME']     || box_config['private_network']['name']    || ''
@@ -73,6 +77,17 @@ Vagrant.configure('2') do |config|
         else
             config.vm.network 'private_network', name: PNET_NAME, ip: PNET_IP
         end
+    end
+
+    # Ports exposed to the host
+    if (MINDSDB_APIS.include? 'mysql') and PORT_MYSQL.to_i > 0
+        config.vm.network 'forwarded_port', guest: 47335, host: PORT_MYSQL
+    end
+    if (MINDSDB_APIS.include? 'http') and PORT_HTTP.to_i > 0
+        config.vm.network 'forwarded_port', guest: 47334, host: PORT_HTTP
+    end
+    if (MINDSDB_APIS.include? 'mongodb') and PORT_MONGODB.to_i > 0
+        config.vm.network 'forwarded_port', guest: 47336, host: PORT_MONGODB
     end
 
 

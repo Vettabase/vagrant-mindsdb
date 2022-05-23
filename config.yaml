@@ -11,6 +11,11 @@ vm:
   cpu:
   ram:
 
+ports:
+  mysql: 47335
+  http: 47334
+  mongodb: 47336
+
 private_network:
   enable:
   name:
