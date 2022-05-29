@@ -79,19 +79,19 @@ Vagrant.configure('2') do |config|
         end
     end
     
-    config.vm.network 'forwarded_port', guest: 47334, host: 47334
-    config.vm.network 'forwarded_port', guest: 47335, host: 47335
-    config.vm.network 'forwarded_port', guest: 47336, host: 47336
+#    config.vm.network 'forwarded_port', guest: 47334, host: 47334
+#    config.vm.network 'forwarded_port', guest: 47335, host: 47335
+#    config.vm.network 'forwarded_port', guest: 47336, host: 47336
     # Ports exposed to the host
-#    if (MINDSDB_APIS.include? 'mysql') and PORT_MYSQL.to_i > 0
-#        config.vm.network 'forwarded_port', guest: 47335, host: PORT_MYSQL
-#    end
-#    if (MINDSDB_APIS.include? 'http') and PORT_HTTP.to_i > 0
-#        config.vm.network 'forwarded_port', guest: 47334, host: PORT_HTTP
-#    end
-#    if (MINDSDB_APIS.include? 'mongodb') and PORT_MONGODB.to_i > 0
-#        config.vm.network 'forwarded_port', guest: 47336, host: PORT_MONGODB
-#    end
+    if (MINDSDB_APIS.include? 'mysql') and PORT_MYSQL.to_i > 0
+        config.vm.network 'forwarded_port', guest: 47335, host: PORT_MYSQL
+    end
+    if (MINDSDB_APIS.include? 'http') and PORT_HTTP.to_i > 0
+        config.vm.network 'forwarded_port', guest: 47334, host: PORT_HTTP
+    end
+    if (MINDSDB_APIS.include? 'mongodb') and PORT_MONGODB.to_i > 0
+        config.vm.network 'forwarded_port', guest: 47336, host: PORT_MONGODB
+    end
 
 
     if PROVIDER.downcase == 'virtualbox'
