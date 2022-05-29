@@ -57,7 +57,7 @@ characteristics of the guest system.
 | `vm.name`    | `VM_NAME`    | `''`           | Name of the VM, used by the provider.
 | `vm.description` | `VM_DESC` | `''`          | Human-readable description of the VM, used by the provider.
 | `vm.hotplug` | `VM_HOTPLUG` | `'on'`         | Wether hotplug should be ON or OFF for the VM.
-| `vm.cpu`     | `VM_CPU`     | `2`            | Number of vCPU's in the VM.
+| `vm.cpu`     | `VM_CPU`     | `1`            | Number of vCPU's in the VM.
 | `vm.ram`     | `VM_RAM`     | `4096` (4G)    | Amount of RAM in M.
 
 Use these options to give more resources to the VM if needed,
