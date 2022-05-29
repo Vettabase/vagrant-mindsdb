@@ -228,6 +228,53 @@ Environment variables example:
 PNET_ENABLE=yes PNET_NAME=cyberspace vagrant up
 ```
 
+### Example: Build a MindsDB image to communicate with MariaDB
+
+This is an example that shows how to apply the concepts explained
+above to let MindsDB communicate with MariaDB and with MariaDB clients
+running outside of its Vagrant machine.
+
+Here's the situation:
+* MariaDB runs in another VM, called cyberspace.
+* We want to be able to connect to the MindsDB VM using a MariaDB GUI.
+
+First of all, let's configure the access to the private network
+as shown above:
+
+```
+private_network:
+  enable: yes
+  name: cyberspace
+  ip:
+```
+
+The ports we may need to connect to are exposed by default. But
+their numbers are not standard. If we want MindsDB MySQL interface
+to listen on the 3306 port, we can do this:
+
+```
+ports:
+  mysql: 3306
+  http:
+  mongodb:
+```
+
+Then just spin the machine:
+
+```
+vagrant up
+```
+
+It's as simple as that!
+
+For various reasons, you may need to know the IPs of your MindsDB
+and MariaDB machines. To get a machine's IP, move to their environment
+(the path shown by `vagrant global-status`) and run:
+
+```
+vagrant ssh -c 'hostname -i'
+```
+
 ## Packaging
 
 To create a box from this Vagrantfile:
