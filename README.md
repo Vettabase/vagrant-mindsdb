@@ -200,7 +200,33 @@ See "Generic settings" to know which OSs are supported.
 
 ### Using private networking
 
-TO-DO
+Private networking allows Vagrant machines to communicate with
+each other. This is usually the best way to enable communication
+between two or more programs that we want to run inside Vagrant.
+
+To use private networking, we must set `private_network.enable`
+or `PNET_ENABLE` to `yes`. We can also specify a network name with
+`private_network.name` or `PNET_NAME`. Remember that  Vagrant
+machine can only communicate with machines in the same network.
+Finally, we can optionally specify an IP address via
+`private_network.ip` or `PNET_IP`. If we don't specify an IP,
+one will be assigned by the Vagrant DHCP service, which is
+usually the best choice.
+
+Configuration file example:
+
+```
+private_network:
+  enable: yes
+  name: cyberspace
+  ip:
+```
+
+Environment variables example:
+
+```
+PNET_ENABLE=yes PNET_NAME=cyberspace vagrant up
+```
 
 ## Packaging
 
