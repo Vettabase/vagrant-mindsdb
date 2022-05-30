@@ -59,12 +59,12 @@ source mindsdb/bin/activate
 
 if [ -z "$SYS_PIP_VERSION" ];
 then
-    pip install --upgrade --prefer-binary --no-cache-dir pip
+    pip3 install --upgrade --prefer-binary --no-cache-dir pip
 else
-    python -m pip install pip==$SYS_PIP_VERSION
+    python3 -m pip install pip==$SYS_PIP_VERSION
 fi
-pip install --no-cache-dir --default-timeout 30 mindsdb$ARG_MINDSDB_VERSION
-#pip freeze
+pip3 install --no-cache-dir --default-timeout 30 mindsdb$ARG_MINDSDB_VERSION
+#pip3 freeze
 
 if [ "$INCLUDE_CLIENT_MARIADB" == '1' ];
 then
@@ -78,7 +78,7 @@ if [ "$INCLUDE_CLIENT_MYCLI" == '1' ];
 then
     python3 -m venv mycli
     source mycli/bin/activate
-    pip3 install mycli
+    pip install mycli
     deactivate
 
     BASHRC=/home/vagrant/.bashrc
