@@ -64,7 +64,7 @@ else
     python -m pip install pip==$SYS_PIP_VERSION
 fi
 pip install --no-cache-dir --default-timeout 30 mindsdb$ARG_MINDSDB_VERSION
-pip freeze
+#pip freeze
 
 if [ "$INCLUDE_CLIENT_MARIADB" == '1' ];
 then
