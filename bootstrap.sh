@@ -16,7 +16,7 @@ then
 fi
 
 # PIP version to install from a Linux repository
-SYS_PIP_VERSION=
+ARG_SYS_PIP_VERSION=
 if [ ! -z "$SYS_PIP_VERSION" ];
 then
     ARG_SYS_PIP_VERSION="==$SYS_PIP_VERSION"
@@ -61,7 +61,7 @@ if [ -z "$SYS_PIP_VERSION" ];
 then
     pip3 install --upgrade --prefer-binary --no-cache-dir pip
 else
-    python3 -m pip install pip==$SYS_PIP_VERSION
+    python3 -m pip install pip$ARG_SYS_PIP_VERSION
 fi
 pip3 install --no-cache-dir --default-timeout 30 mindsdb$ARG_MINDSDB_VERSION
 #pip3 freeze
