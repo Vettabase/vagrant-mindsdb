@@ -192,6 +192,7 @@ echo ''                            >> $SERVICE_CONF
 mv $SERVICE_CONF /etc/systemd/system/mindsdb.service
 
 systemctl daemon-reload
+systemctl enable mindsdb
 systemctl start mindsdb
 
 # replace default motd with our script
