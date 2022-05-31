@@ -2,6 +2,11 @@
 
 Vagrantfile for a box containing MindsDB server and MariaDB client.
 
+This Vagrantfile is used, with default values, to build the
+`vettabase/mindsdb` Vagrant box:
+
+https://app.vagrantup.com/vettabase/boxes/mindsdb
+
 
 ## Configuration
 
@@ -280,6 +285,13 @@ vagrant ssh -c 'hostname -i'
 To create a box from this Vagrantfile:
 * Create a VM as documented above, using the desired provider.
 * Run `vagrant package --output <filename>`.
+
+If you're ok with default options, you can just use the official
+Vagrant box from Vettabase:
+
+```
+https://app.vagrantup.com/vettabase/boxes/mindsdb
+```
 
 
 ## To Do
