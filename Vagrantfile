@@ -56,6 +56,12 @@ SYS_SWAPPINESS     = ENV['SYS_SWAPPINESS'] || box_config['guest_system']['swappi
 INCLUDE_CLIENT_MARIADB = ENV['INCLUDE_CLIENT_MARIADB'] || box_config['include']['clients']['mariadb'] || '1'
 INCLUDE_CLIENT_MYCLI   = ENV['INCLUDE_CLIENT_MYCLI']   || box_config['include']['clients']['mycli']   || '1'
 
+# Validate user settings
+if VM_HOTPLUG.downcase == 'on' and (ENV['VM_CPU'] || box_config['vm']['cpu'])
+    puts 'Setting vm.cpu or VM_CPU is not allowed when Hotplug is enabled'
+    abort
+end
+
 
 Vagrant.require_version '>= 2.2.16'
 
