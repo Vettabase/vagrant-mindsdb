@@ -5,6 +5,7 @@ CHANGELOG
 
 - Change VM_HOTPLUG default to 'off'
 - Change VM_CPU default to '1'
+- If VM_HOTPLUG is ON, setting VM_CPU is not allowed
 
 1.0.1
 
