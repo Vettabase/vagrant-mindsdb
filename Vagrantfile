@@ -32,8 +32,8 @@ PROVIDER      = ENV['PROVIDER']      || box_config['virtualbox']    || 'virtualb
 # NOTE: Depending on the provider of choice, some options may be ignored
 VM_NAME     = ENV['VM_NAME']     || box_config['vm']['name']         || 'MindsDB'
 VM_DESC     = ENV['VM_DESC']     || box_config['vm']['description']  || 'MindsDB In-Database Marchine Learning'
-VM_HOTPLUG  = ENV['VM_HOTPLUG']  || box_config['vm']['hotplug']      || 'on'
-VM_CPU      = ENV['VM_CPU']      || box_config['vm']['cpu']          || '2'
+VM_HOTPLUG  = ENV['VM_HOTPLUG']  || box_config['vm']['hotplug']      || 'off'
+VM_CPU      = ENV['VM_CPU']      || box_config['vm']['cpu']          || '1'
 VM_RAM      = ENV['VM_RAM']      || box_config['vm']['ram']          || 1024 * 4
 # expose/map ports
 PORT_MYSQL    = ENV['PORT_MYSQL']    || box_config['ports']['mysql']    || nil
