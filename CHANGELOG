@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+1.0.2 (unreleased)
+
+- Change VM_HOTPLUG default to 'off'
+- Change VM_CPU default to '1'
+
 1.0.1
 
 - Add missing "systemctl enable"
