@@ -55,7 +55,7 @@ fi
 
 if [[ $BOX == ubuntu* ]];
 then
-    apt install -y python3.8-venv
+    apt install -y python3-venv
 elif [[ $BOX == debian* ]];
 then
     apt-get install -y python3-venv
