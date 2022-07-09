@@ -40,6 +40,7 @@ These are the generic settings.
 | `provider`        | `PROVIDER`        | `'virtualbox'`       | The Vagrant provider to use, case-insensitive.
 
 Currently, these baseboxes are supported:
+- `ubuntu/jammy64`
 - `ubuntu/focal64`
 - `debian/bullseye64`
 
