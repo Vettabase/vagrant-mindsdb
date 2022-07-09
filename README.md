@@ -36,7 +36,7 @@ These are the generic settings.
 
 | Config File       | Environment       | Default              | Description |
 | ----------------- | ----------------- | -------------------- | ----------- |
-| `box`             | `BOX`             | `'ubuntu/bionic64'`  | The name of the base box (the VM operating system).
+| `box`             | `BOX`             | `'ubuntu/focal64'`   | The name of the base box (the VM operating system).
 | `provider`        | `PROVIDER`        | `'virtualbox'`       | The Vagrant provider to use, case-insensitive.
 
 Currently, the only tested basebox is `ubuntu/focal64`. It is reasonable to
