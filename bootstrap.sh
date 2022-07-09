@@ -53,7 +53,14 @@ then
     apt-get install python-is-python3
 fi
 
-apt install -y python3.8-venv
+if [[ $BOX == ubuntu* ]];
+then
+    apt install -y python3.8-venv
+elif [[ $BOX == debian* ]];
+then
+    apt-get install -y python3-venv
+fi
+
 python3 -m venv mindsdb
 source mindsdb/bin/activate
 
