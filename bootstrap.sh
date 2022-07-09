@@ -74,6 +74,8 @@ else
 fi
 
 $PIP3_BIN install --no-cache-dir --default-timeout 30 mindsdb$ARG_MINDSDB_VERSION
+deactivate
+
 
 if [ "$INCLUDE_CLIENT_MARIADB" == '1' ];
 then
