@@ -60,11 +60,13 @@ source mindsdb/bin/activate
 if [ -z "$SYS_PIP_VERSION" ];
 then
     pip3 install --upgrade --prefer-binary --no-cache-dir pip
+    PIP3_BIN=pip3.10
 else
     python3 -m pip install pip$ARG_SYS_PIP_VERSION
+    PIP3_BIN=pip3
 fi
-pip3 install --no-cache-dir --default-timeout 30 mindsdb$ARG_MINDSDB_VERSION
-#pip3 freeze
+
+$PIP3_BIN install --no-cache-dir --default-timeout 30 mindsdb$ARG_MINDSDB_VERSION
 
 if [ "$INCLUDE_CLIENT_MARIADB" == '1' ];
 then
