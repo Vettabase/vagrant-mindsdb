@@ -55,13 +55,22 @@ fi
 
 if [[ $BOX == ubuntu* ]];
 then
-    apt install -y python3-venv
+    if [[ $BOX == *jammy64 ]];
+    then
+        touch /x
+        add-apt-repository -y ppa:deadsnakes/ppa
+        apt install -y python3.8 python3.8-venv
+    else
+        apt install -y python3-venv
+    fi
 elif [[ $BOX == debian* ]];
 then
     apt-get install -y python3-venv
 fi
 
-python3 -m venv mindsdb
+PYTHON3_BIN=python3.8
+
+$PYTHON3_BIN -m venv mindsdb
 source mindsdb/bin/activate
 
 if [ -z "$SYS_PIP_VERSION" ];
@@ -69,7 +78,7 @@ then
     pip3 install --upgrade --prefer-binary --no-cache-dir pip
     PIP3_BIN=pip3.10
 else
-    python3 -m pip install pip$ARG_SYS_PIP_VERSION
+    $PYTHON3_BIN -m pip install pip$ARG_SYS_PIP_VERSION
     PIP3_BIN=pip3
 fi
 
@@ -87,9 +96,17 @@ fi
 # and create a mycli alias for vagrant and root
 if [ "$INCLUDE_CLIENT_MYCLI" == '1' ];
 then
-    python3 -m venv mycli
+    if [[ $BOX == *jammy64 ]];
+    then
+        # use the same binaries as above
+        echo '' > /dev/null
+    else
+        PYTHON3_BIN=python3
+        PIP3_BIN=pip
+    fi
+    $PYTHON3_BIN -m venv mycli
     source mycli/bin/activate
-    pip install mycli
+    $PIP3_BIN install mycli
     deactivate
 
     BASHRC=/home/vagrant/.bashrc
