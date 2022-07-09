@@ -39,10 +39,13 @@ These are the generic settings.
 | `box`             | `BOX`             | `'ubuntu/focal64'`   | The name of the base box (the VM operating system).
 | `provider`        | `PROVIDER`        | `'virtualbox'`       | The Vagrant provider to use, case-insensitive.
 
-Currently, the only tested basebox is `ubuntu/focal64`. It is reasonable to
-expect that most boxes running an Ubuntu Focal system will just work. We could add
-more systems. More importantly, you may want to use a database Vagrant box as a base,
-so the MindsDB and the data source will be located on the same VM.
+Currently, these baseboxes are supported:
+- `ubuntu/focal64`
+- `debian/bullseye64`
+
+It is reasonable to expect that most boxes running an Ubuntu Focal system will just work.
+We could add more systems. More importantly, you may want to use a database Vagrant box
+as a base, so the MindsDB and the data source will be located on the same VM.
 
 Also, currently the only supported provider is VirtualBox.
 
