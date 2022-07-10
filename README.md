@@ -156,7 +156,7 @@ These settings affect the configuration of the guest system.
 | Config File                       | Environment          | Default  | Description |
 | --------------------------------- | -------------------- | -------- | ----------- |
 | `guest_system.skip_python_alias`  | `SKIP_PYTHON_ALIAS`  | `''`     | Set to any value to use `python` as an alias for `python3`.
-| `guest_system.pip_version`        | `SYS_PIP_VERSION`    | `''`     | Install this Pip version, rather than the latest. Don't change it unless you know what you are doing.
+| `guest_system.pip_version`        | `SYS_PIP_VERSION`    | `''`     | Install this Pip version, rather than the latest. Untested. Don't change it unless you know what you are doing.
 | `guest_system.on_login`           | `SYS_ON_LOGIN`       | `''`     | Command to run when `vagrant` user logs in. The intended use is running a MySQL client. Leave blank to skip such command. `AUTO` chooses automatically the client to launch: `mycli` or `mysql`, in order of preference.
 | `guest_system.swappiness`         | `SYS_SWAPPINESS`     | `1`      | Linux swappiness level. Swappiness can save a process from being killes when it requires too much memory, but it can also severly damage a database server performance. MindsDB is not expected to be an exception.
 
