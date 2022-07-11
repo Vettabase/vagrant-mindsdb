@@ -19,6 +19,37 @@
 require 'yaml'
 
 
+# Normalize specified boolean-ish string value to '0' or '1'.
+# If the value is not a booleanish string, the program is aborted with an error message.
+# An empty value or nil is allowed if allow_empty=false, but '0'
+# is still returned.
+def normalize_boolean_string(var_name, var_value, allow_empty = false, style = 'num')
+    if allow_empty and (var_value.nil? or var_value.empty?)
+        var_value = '0'
+    end
+    if var_value == '0' or var_value.downcase == 'off' or var_value.downcase == 'n' or var_value.downcase == 'no' or var_value.downcase == 't' or var_value.downcase == 'true'
+        if style == 'num'
+            return '0'
+        elsif style == 'onoff'
+            return 'off'
+        elsif style == 'yesno'
+            return 'no'
+        end
+    elsif var_name == '1' or var_name.downcase == 'on' or var_name.downcase == 'y' or var_name.downcase == 'yes' or var_name.downcase == 'f' or var_name.downcase == 'false'
+        if style == 'num'
+            return '1'
+        elsif style == 'onoff'
+            return 'on'
+        elsif style == 'yesno'
+            return 'yes'
+        end
+    else
+        puts 'Invalid value for ' + var_name + ': ' + var_value
+        abort
+    end
+end
+
+
 # Read settings from the configuration file.
 # A non-default configuration file can be specified via CONFIG env variable.
 # Each setting can be overridden with an environment variable.
